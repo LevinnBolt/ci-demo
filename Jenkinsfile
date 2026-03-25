@@ -9,25 +9,25 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/LevinnBolt/ci-demo.git'
+                git branch: 'main', url: 'https://github.com/LevinnBolt/ci-demo.git'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                sh 'mvn package'
+                bat 'mvn package'
             }
         }
     }
